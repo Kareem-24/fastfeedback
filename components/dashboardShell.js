@@ -2,7 +2,12 @@ import React from "react";
 import NextLink from "next/link";
 import { Box, Button, Flex, Link, Avatar, Icon } from "@chakra-ui/core";
 
-const DashboardShell = () => {
+import { useAuth } from "@/lib/auth";
+import Footer from "./Footer";
+
+const DashboardShell = ({ children }) => {
+  const { user } = useAuth();
+
   return (
     <Box backgroundColor="gray.100" h="100vh">
       <Flex
@@ -25,7 +30,7 @@ const DashboardShell = () => {
           <Flex align="center">
             <NextLink href="/" passHref>
               <Link>
-                <Icon color="black" boxSize={4} viewBox="0 0 46 32">
+                <Icon color="black" boxSize={16} viewBox="0 0 46 32">
                   <path
                     fill="currentColor"
                     d="M19.557.113C11.34.32 9.117 8.757 9.03 12.95c1.643-2.67 4.62-3.08 6.931-3.08 2.825.085 10.27.205 17.458 0C40.61
